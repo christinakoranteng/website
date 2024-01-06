@@ -5,16 +5,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Component Imports
-import CallToAction from "../components/CallToAction.astro";
-import Grid from "../components/Grid.astro";
-import Hero from "../components/Hero.astro";
-import Icon from "../components/Icon.astro";
-import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 
 // Page section components
 import ContactCTA from "../components/ContactCTA.astro";
-import Skills from "../components/Skills.astro";
 
 // Content Fetching: List four most recent work projects
 const projects = (await getCollection("work"))
@@ -24,32 +18,52 @@ const projects = (await getCollection("work"))
 
 <BaseLayout>
   <div class="stack gap-20 lg:gap-48">
-    <div class="wrapper stack gap-8 lg:gap-20">
-      <header class="hero">
-        <Hero
-          title="Hey, it's Christina"
-          tagline="I coach people. Based in Berlin."
-          align="start"
-        >
-          <div class="roles">
-            <Pill><Icon icon="code" size="1.33em" /> Coach</Pill>
-            <Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-            <Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
-          </div>
-        </Hero>
-
-        <img
-          alt="Christina Koranteng smiling in a red plaid shirt and tortoise shell glasses"
-          width="480"
-          height="620"
-          src="/assets/portrait.jpg"
-        />
+    <div
+      class="self-center max-w-[85dvw] md:max-w-[60dvw] stack gap-8 lg:gap-20"
+    >
+      <header
+        class="h-[80dvh] flex flex-col gap-8 grid-flow-row justify-center text-center"
+      >
+        <h2 class="text-3xl md:text-5xl">
+          It’s time to get to the root of your problems without having to be in
+          therapy for years.
+        </h2>
+        <div class="flex flex-col gap-8 items-center">
+          <p class="text-lg md:text-2xl">
+            I help people move from simply being self aware of their self
+            sabotaging patterns to actually changing those patterns. With simple
+            yet game changing methods that rewire the subconscious mind.
+          </p>
+          <a href="/services" class="p-2 rounded-lg">Find out more</a>
+        </div>
       </header>
 
-      <Skills />
+      <section class="flex flex-col gap-8">
+        <h2 class="text-3xl md:text-5xl">
+          Awareness is everything, yet achieves nothing without action.
+        </h2>
+
+        <p class="text-lg md:text-2xl">
+          I am here to help you turn your awareness into actual change.
+        </p>
+
+        <p class="text-lg md:text-2xl">
+          You've always been curious about therapy or perhaps you have already
+          been in and out of therapy a few times.You gained a lot of self
+          awareness but no tools to change all the unwanted patterns you have
+          now become aware of. True change happens when we target the
+          subconscious mind - And I just so happen to be an expert in helping
+          you do that.
+        </p>
+        <div class="max-w-[80ch]">
+          <PortfolioPreview project={projects[3] as any} />
+        </div>
+      </section>
+
+      <!-- <Skills /> -->
     </div>
 
-    <main class="wrapper stack gap-20 lg:gap-48">
+    <!-- <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
         <header class="section-header stack gap-2 lg:gap-4">
           <h3>Offerings</h3>
@@ -99,7 +113,7 @@ const projects = (await getCollection("work"))
           </Grid>
         </div>
       </section>
-    </main>
+    </main> -->
 
     <ContactCTA />
   </div>

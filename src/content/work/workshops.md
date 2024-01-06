@@ -1,5 +1,5 @@
 ---
-title: Workshops
+title: Explore services
 publishDate: 2022-12-01 00:00:00
 img: /assets/workshops.jpg
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background

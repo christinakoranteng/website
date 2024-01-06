@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 import ContactCTA from "../components/ContactCTA.astro";
-import Hero from "../components/Hero.astro";
 ---
 
 <BaseLayout
@@ -10,61 +8,46 @@ import Hero from "../components/Hero.astro";
   description="About Christina Koranteng Lorem Ipsum"
 >
   <div class="stack gap-20">
-    <main class="wrapper about">
-      <Hero title="About" tagline="This is my story. Thanks for stopping by.">
-        <img
-          width="1553"
-          height="873"
-          src="/assets/about.jpg"
-          alt="Christina Koranteng at work with a colleague"
-        />
-      </Hero>
+    <main class="self-center prose prose-xl dark:prose-invert">
+      <header>
+        <h1>I've been there, done that!</h1>
+        <h3>Integrated. Attachment Coach.</h3>
+      </header>
       <section>
-        <h2 class="section-title">Now</h2>
-        <div class="content">
-          <p>Building my own Website.</p>
-          <p>Escaping the Berlin Winter.</p>
-          <p>Looking fly and not so shy.</p>
-        </div>
-      </section>
-      <section>
-        <h2 class="section-title">What I do</h2>
-        <div class="content">
-          <p>
-            l am an intogreated attochment coach. Attachment theory is a well
-            tablished and evidence-based psychological theory that explains how
-            our eary childhood experiences shape our adult lives. Essentially
-            it's about our patterns in relalionships in the broadest sense of
-            the word. We have a relationship to everything. To work, to
-            ourselves, to our habits and our attachment style dictates how we
-            conduct these relationships.
-          </p>
-        </div>
-      </section>
-      <section>
-        <h2 class="section-title">Background</h2>
-        <div class="content">
-          <p>
-            Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a>
-             makes people happy. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Proin nibh nisl condimentum id venenatis a
-            condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut
-            sem nulla pharetra diam sit amet. Diam quis enim lobortis
-            scelerisque fermentum dui faucibus in ornare.
-          </p>
-        </div>
-      </section>
-      <section>
-        <h2 class="section-title">Education</h2>
-        <div class="content">
-          <p>Corporis voluptates tenetur laudantium.</p>
-        </div>
-      </section>
-      <section>
-        <h2 class="section-title">Skills</h2>
-        <div class="content">
-          <p>officia unde omnis</p>
-        </div>
+        <p>
+          I know what it's like having read so many self development books and
+          sitting in front of a therapist thinking... Uhhmm I think I know more
+          than you do! I know what it's like feeling like you have this big AHA
+          moment, discovering a pattern that has been troubling you over and
+          over again.. to only find out months later when you fall flat on your
+          face again... that AHA moment, was just a piece of a very big and
+          seemingly ENDLESS puzzle. I know what it's like to feel like you're
+          healing journey is never ending (which it technically is) and
+          sometimes even feels like you take 1 step forward and 2 steps back.
+          I've been there, done that and it sucks!
+        </p>
+
+        <p>
+          Before I became an integrated attachment practitioner, I was actually
+          a client like you.. I had spent many days searching for the right
+          therapist, wondering what's wrong with me and self analysing through
+          the internets. After going through a period of attachment coaching
+          myself, I began to make big leaps of progress that I had never made
+          before. Patterns that I had battled with for years, melted away like
+          snow, my self loathing turned into self compassion & self confidence
+        </p>
+
+        <p>
+          And the best part ?! I was getting to the root cause of my problems
+          and solving for them in a matter of weeks instead of years.
+        </p>
+
+        <p>
+          Once I finished I was so in awe of my own results I became dedicated
+          to letting the world know about this. Fast forward 6 years later my
+          heart jumps for joy seeing countless of clients go through that same
+          fundemental transformation in such short amounts of time.
+        </p>
       </section>
     </main>
 
@@ -73,25 +56,6 @@ import Hero from "../components/Hero.astro";
 </BaseLayout>
 
 <style>
-  .about {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
-  }
-
-  img {
-    margin-top: 1.5rem;
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow-md);
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: var(--gray-200);
-  }
-
   .section-title {
     grid-column-start: 1;
     font-size: var(--text-xl);
