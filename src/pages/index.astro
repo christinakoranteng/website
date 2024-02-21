@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PortfolioPreview from "../components/PortfolioPreview.astro";
-import Skills from "../components/Skills.astro";
 
 const projects = (await getCollection("work"))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
@@ -10,94 +8,158 @@ const projects = (await getCollection("work"))
 ---
 
 <BaseLayout>
-  <div class="flex flex-col gap-20 lg:gap-48">
+  <main class="flex flex-col gap-20">
+    <div class="absolute h-full w-[50dvw] border-r"></div>
+
+    <!-- HERO SECTION -->
     <div
-      class="font-serif self-center max-w-[85dvw] md:max-w-[60dvw] stack gap-8 lg:gap-20"
+      class="flex flex-col bg-[url('img/hero.jpg')] bg-no-repeat bg-cover bg-[center_bottom_0rem] text-white"
     >
-      <header
-        class="h-[90dvh] flex flex-col gap-8 grid-flow-row justify-center text-center"
+      <div
+        class="font-sans self-center max-w-[85dvw] md:max-w-[80dvw] stack gap-8 lg:gap-20 font-semibold"
       >
-        <h2 class="text-3xl md:text-5xl">
-          You deserve to get to the root of your problem now!
-        </h2>
-        <div class="flex flex-col gap-8 items-center">
-          <p class="text-lg md:text-2xl">
-            I help people move from simply being self aware of their self
-            sabotaging patterns to actually changing those patterns. With simple
-            yet game changing methods that rewire the subconscious mind.
-          </p>
-          <a href="/services" class="p-2 rounded-lg">Find out more</a>
-        </div>
-      </header>
-
-      <section class="flex flex-col gap-8">
-        <h2 class="text-3xl md:text-5xl">
-          Awareness is everything, yet achieves nothing without action.
-        </h2>
-
-        <p class="text-lg md:text-2xl">
-          I am here to help you turn your awareness into actual change.
-        </p>
-
-        <p class="text-lg md:text-2xl">
-          You've always been curious about therapy or perhaps you have already
-          been in and out of therapy a few times.You gained a lot of self
-          awareness but no tools to change all the unwanted patterns you have
-          now become aware of. True change happens when we target the
-          subconscious mind - And I just so happen to be an expert in helping
-          you do that.
-        </p>
-        <div class="max-w-[80ch]">
-          <PortfolioPreview project={projects[3] as any} />
-        </div>
-      </section>
-
-      <Skills />
+        <header
+          class="h-screen flex flex-col gap-8 grid-flow-row justify-end py-32 text-center"
+        >
+          <h2 class="text-3xl md:text-7xl uppercase tracking-widest">
+            Solve your Problems
+          </h2>
+          <h2 class="text-3xl md:text-7xl uppercase tracking-widest">
+            at the root.
+          </h2>
+          <div class="flex flex-col gap-8 items-center">
+            <a href="/services" class="p-2 rounded-lg">Find out more</a>
+          </div>
+        </header>
+      </div>
     </div>
 
-    <main class="wrapper stack gap-20 lg:gap-48">
-      <section class="section with-background with-cta">
-        <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Offerings</h3>
-          <p>Take a look at my most recent work.</p>
-        </header>
+    <!-- Elevator Pitch -->
+    <div
+      class="flex flex-col h-[70vh] text-black text-center justify-between p-20"
+    >
+      <div class="text-5xl">
+        NO MORE STRUGGLING WITH THE SAME PATTERNS FOR YEARS
+      </div>
+      <div class="text-6xl px-64">
+        I AM HERE TO HELP YOU ADDRESS ISSUES ON A ROOT LEVEL
+      </div>
+      <div class="text-3xl">
+        you're an amazing self- refleced individual who's read the self help
+        books, maybe even done the therapy and always knows how to give the best
+        advice. but somehow you never managed to translate that into the big
+        changes you want for your own life. i'll let you in on a little
+        secret...true change happens when we target the subconscious mind! and
+        that's exactly what i know to do best.
+      </div>
+    </div>
 
-        <div class="gallery">
-          {
-            projects.map((project) => (
-              <li>
-                <PortfolioPreview project={project} />
-              </li>
-            ))
-          }
+    <!-- Relation -->
+    <div class="grid grid-cols-12 h-[50vh] text-black">
+      <div
+        class="col-span-6 bg-[url('/img/relate.jpg')] bg-center bg-no-repeat bg-cover"
+      >
+      </div>
+
+      <div class="col-span-6 flex flex-col place-self-center p-12 gap-10">
+        <div class="text-5xl tracking-wider font-semibold uppercase">
+          I know what it's like
         </div>
-
-        <div class="cta">
-          <a href="/work/"> View All</a>
-        </div>
-      </section>
-
-      <section class="section with-background bg-variant">
-        <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Testimonials</h3>
-          <p>
-            I have been fortunate to receive praise for my work from several
-            publications. Take a look to learn more.
+        <div class="flex flex-col gap-4">
+          <p class="text-2xl">
+            I know what it's like to feel stuck in a loop,with full self
+            awareness of certain behaviours, yet no actual practical ways to
+            change.
           </p>
-        </header>
-
-        <div class="gallery">
-          {
-            ["Medium", "BerlinNext", "FAZ", "awwwards.", "GrowthSpiral"].map(
-              (brand) => (
-                <li class="mention-card">
-                  <p>{brand}</p>
-                </li>
-              )
-            )
-          }
+          <p class="text-2xl">
+            I know what it's like to have this big AHA moment one day, just to
+            find your self in that same old pattern the next. (Read more)
+          </p>
+          <button class="border rounded w-max p-2">Book Now</button>
         </div>
-      </section>
-    </main>
-  </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="h-auto grid grid-cols-3 grid-rows-2 grid-flow-col">
+      <div class="row-span-1 col-span-3 text-7xl text-center">Testimonials</div>
+      <div class="col-span-1 flex flex-col">
+        <div class="text-3xl">FORGOT MY TROUBLES</div>
+        <div class="">
+          In a short amount of time I went from really struggling with feeling
+          depressed to forgetting that I was ever depressed. Christina's methods
+          are really hands on and that's what I love about her approach. I
+          really felt in control of my own process and the results show it.
+        </div>
+        <div>- Emily. Y, Entrepreneur</div>
+      </div>
+      <div class="col-span-1 flex flex-col">
+        <div class="text-3xl">LOVELY BISTRO</div>
+        <div class="">
+          Christina doesn't settle unless she's gotten to the core. She
+        </div>
+        <div>- Emily. Y, Entrepreneur</div>
+      </div>
+      <div class="col-span-1 flex flex-col">
+        <div class="text-3xl">TRANSPORTED TO PARIS</div>
+        <div class="">
+          Eating here made me miss Paris so much. What a treat! I will be
+          bringing my client meetings here.
+        </div>
+        <div>- Carly, Entrepreneur</div>
+      </div>
+    </div>
+
+    <!-- Offerings -->
+    <div class="grid grid-cols-4 h-auto">
+      <div class="">
+        <div class="text-5xl">
+          IT'S TIME TO SOLVE YOUR PROBLEMS AT THE ROOT WITHOUT BEING STUCK FOR
+          YEARS!
+        </div>
+        <div class="text-3xl">
+          I help people reprogram and heal their subconscious programs patterns
+          and self sabotage.
+        </div>
+      </div>
+      <div class="">
+        <div class="bg-[url('img/about.jpg')] h-full bg-contain bg-no-repeat">
+        </div>
+        <div class="text-3xl">THE BODY</div>
+        <div class="">TTC - SOMATIC/ENERGY WORK</div>
+      </div>
+      <div class="">
+        <div class="bg-[url('img/about.jpg')] h-full bg-contain bg-no-repeat">
+        </div>
+        <div class="text-3xl">THE MIND</div>
+        <div class="">INTEGRATED ATTACHMENT THEORY</div>
+      </div>
+      <div class="">
+        <div class="bg-[url('img/about.jpg')] h-full bg-contain bg-no-repeat">
+        </div>
+        <div class="text-3xl">THE MAGIC</div>
+        <div class="">IAT + TTC</div>
+      </div>
+    </div>
+    <!-- Contact -->
+    <div class="grid grid-cols-12 h-[50vh] text-black">
+      <div
+        class="col-span-6 bg-[url('/img/mystic.jpg')] bg-center bg-no-repeat bg-cover"
+      >
+      </div>
+
+      <div class="col-span-6 flex flex-col place-self-center p-12 gap-10">
+        <div class="text-5xl tracking-wider font-semibold uppercase">
+          Contact
+        </div>
+        <div class="flex flex-col gap-4">
+          <p class="text-2xl">EMAIL ADDRESS</p>
+          <p class="text-2xl">Info@ChristinaKoranteng.com</p>
+          <p class="text-2xl">SOCIALS</p>
+          <p class="text-2xl">Twitter Facebook Instagram</p>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </main>
 </BaseLayout>

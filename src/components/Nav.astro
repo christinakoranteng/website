@@ -10,11 +10,13 @@ const textLinks: { label: string; href: string }[] = [
 ];
 ---
 
-<nav class="flex flex-row justify-between px-20 py-10">
+<nav
+  class="absolute w-full flex flex-row justify-center px-20 py-10 text-white text-4xl drop-shadow-xl"
+>
   <div class="brand">
     <a href="/" class="site-title"> Christina Koranteng</a>
   </div>
-  <div class="">
+  <!-- <div class="">
     <ul class="nav-items flex flex-row gap-4">
       {
         textLinks.map(({ label, href }) => (
@@ -37,5 +39,5 @@ const textLinks: { label: string; href: string }[] = [
         ))
       }
     </ul>
-  </div>
+  </div> -->
 </nav>
