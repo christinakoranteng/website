@@ -6,18 +6,20 @@ const textLinks: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
   { label: "Services", href: "/services/" },
+  { label: "Booking", href: "/booking/" },
+  { label: "Work", href: "/work/" },
   { label: "Contact", href: "/contact/" },
 ];
 ---
 
 <nav
-  class="absolute w-full flex flex-row justify-center px-20 py-10 text-white text-4xl drop-shadow-xl"
+  class="absolute w-full p-4 flex flex-row justify-between items-center text-white drop-shadow-xl"
 >
-  <div class="brand">
+  <div class="flex w-full text-2xl">
     <a href="/" class="site-title"> Christina Koranteng</a>
   </div>
-  <!-- <div class="">
-    <ul class="nav-items flex flex-row gap-4">
+  <div class="">
+    <ul class="hidden nav-items flex-col gap-4">
       {
         textLinks.map(({ label, href }) => (
           <li>
@@ -39,5 +41,50 @@ const textLinks: { label: string; href: string }[] = [
         ))
       }
     </ul>
-  </div> -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 burger-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+    </svg>
+
+    <ul class=" burger-menu bg-slate-600 absolute right-0 p-4 text-right hidden md:flex flex-col gap-8 text-2xl">
+      {
+        textLinks.map(({ label, href }) => (
+          <li>
+            <a
+              aria-current={Astro.url.pathname === href}
+              class:list={[
+                "link",
+                {
+                  active:
+                    Astro.url.pathname === href ||
+                    (href !== "/" && Astro.url.pathname.startsWith(href)),
+                },
+              ]}
+              href={href}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </nav>
+
+<script>
+  const burger = document.querySelector(".burger-icon");
+  const menu = document.querySelector(".burger-menu");
+
+  burger?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>
