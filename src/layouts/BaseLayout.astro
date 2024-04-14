@@ -10,21 +10,18 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
-  padding?: number;
 }
 
-const { title, description, padding } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <MainHead title={title} description={description} />
   </head>
-  <body class=`flex flex-col bg-gray-600 text-white min-h-[100dvh] `>
+  <body class="bg-gray-600 text-white">
     <Nav />
-    <div class=`pt-${padding ?? 12}`>
-      <slot />
-    </div>
+    <slot />
     <Footer />
     <script>
       // Add “loaded” class once the document has completely loaded.
