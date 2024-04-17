@@ -1,21 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ContactCTA from "../components/ContactCTA.astro";
-import Hero from "../components/Hero.astro";
 ---
 
 <BaseLayout
   title="Booking | Christina Koranteng"
   description="Learn about Christina Koranteng's most recent projects"
 >
-  <div class="p-4 gap-20">
-    <main class="wrapper stack gap-8">
-      <Hero
-        title="Contact"
-        tagline="Lorem ipsum dolor sit amet."
-        align="start"
-      />
-    </main>
-    <ContactCTA />
-  </div>
+  <main class="prose p-4 gap-20">
+    <header>
+      <h1>Contact</h1>
+      <h3>Lorem ipsum dolor sit amet.</h3>
+    </header>
+    <section>
+      <div class="">Contact</div>
+      <div class="">
+        <p class="">EMAIL ADDRESS</p>
+        <p class="">Info@ChristinaKoranteng.com</p>
+        <p class="">SOCIALS</p>
+        <p class="">Twitter Facebook Instagram</p>
+      </div>
+    </section>
+  </main>
 </BaseLayout>

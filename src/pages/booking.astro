@@ -1,19 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
 ---
 
 <BaseLayout
   title="Booking | Christina Koranteng"
   description="Learn about Christina Koranteng's most recent projects"
 >
-  <div class="p-4 gap-20">
-    <main class="wrapper stack gap-8">
-      <Hero
-        title="Booking"
-        tagline="Take a deep breath. It's time to change your life."
-        align="start"
-      />
-    </main>
-  </div>
+  <main class="prose p-4 gap-20">
+    <header>
+      <h1>Booking</h1>
+      <h3>Take a deep breath. It's time to change your life.</h3>
+    </header>
+  </main>
 </BaseLayout>

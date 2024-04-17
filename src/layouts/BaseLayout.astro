@@ -19,9 +19,11 @@ const { title, description } = Astro.props;
   <head>
     <MainHead title={title} description={description} />
   </head>
-  <body class="bg-gray-600 text-white">
+  <body class="flex flex-col min-h-[100dvh]">
     <Nav />
-    <slot />
+    <div class="mt-16">
+      <slot />
+    </div>
     <Footer />
     <script>
       // Add “loaded” class once the document has completely loaded.
