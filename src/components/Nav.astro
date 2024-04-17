@@ -8,10 +8,12 @@ const textLinks: { label: string; href: string }[] = [
   { label: "Work", href: "/work/" },
   { label: "Contact", href: "/contact/" },
 ];
+
+const path = Astro.url.pathname
 ---
 
 <nav
-  class="absolute w-full p-4 flex flex-row justify-between items-center  drop-shadow-xl"
+  class=`absolute w-full p-4 flex flex-row justify-between items-center  drop-shadow-xl ${path == "/" ? "text-white" : ""}`
 >
   <div class="flex w-full text-2xl">
     <a href="/" class="site-title">Christina Koranteng</a>
