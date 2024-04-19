@@ -1,7 +1,7 @@
 ---
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-  { label: "Home", href: "/" },
+  // { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
   { label: "Services", href: "/services/" },
   { label: "Booking", href: "/booking/" },
@@ -9,17 +9,17 @@ const textLinks: { label: string; href: string }[] = [
   { label: "Contact", href: "/contact/" },
 ];
 
-const path = Astro.url.pathname
+const path = Astro.url.pathname;
 ---
 
 <nav
-  class=`absolute w-full p-4 flex flex-row justify-between items-center  drop-shadow-xl ${path == "/" ? "text-white" : ""}`
+  class=`absolute w-full p-4 sm:p-8 flex flex-row justify-between items-center  drop-shadow-xl ${path == "/" ? "text-white" : ""}`
 >
   <div class="flex w-full text-2xl">
     <a href="/" class="site-title">Christina Koranteng</a>
   </div>
   <div class="">
-    <ul class="hidden nav-items flex-col gap-4">
+    <ul class="hidden md:flex nav-items gap-4">
       {
         textLinks.map(({ label, href }) => (
           <li>
@@ -47,7 +47,7 @@ const path = Astro.url.pathname
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="w-6 h-6 burger-icon"
+      class="burger-icon cursor-pointer w-6 h-6 md:hidden"
     >
       <path
         stroke-linecap="round"
@@ -55,8 +55,9 @@ const path = Astro.url.pathname
         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
     </svg>
 
+    <!-- mobile menu -->
     <ul
-      class="burger-menu bg-slate-600 absolute right-0 p-4 text-right hidden md:flex flex-col gap-8 text-2xl"
+      class="burger-menu hidden absolute bg-transparent right-0 p-4 text-right flex-col gap-8 text-2xl"
     >
       {
         textLinks.map(({ label, href }) => (
