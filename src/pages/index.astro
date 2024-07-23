@@ -1,152 +1,250 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const currentYear = new Date().getFullYear();
+
+const {
+  title = "Christina Koranteng: Personal Site",
+  description = "The personal site of Christina Koranteng",
+} = Astro.props;
 ---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="description" property="og:description" content={description} />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
 
-<BaseLayout>
-  <main class="grid gap-y-24 overflow-hidden mt-[-4rem] font-sans">
-    <!-- HERO SECTION -->
-    <div
-      class="grid grid-rows-12 h-[100dvh] bg-[url('/img/hero.jpg')] bg-no-repeat bg-cover bg-[center] text-white"
-    >
-      <div
-        class="row-start-9 row-end-12
-      md:row-start-9 md:row-end-12
-      text-center"
-      >
-        <header class="flex flex-col gap-2">
-          <p class="text-4xl sm:text-6xl lg:text-8xl font-semibold">
-            SOLVE YOUR PROBLEMS
-          </p>
-          <p class="text-4xl sm:text-6xl lg:text-8xl font-semibold">
-            AT THE ROOT
-          </p>
-          <div class="">
-            <a
-              class="border rounded p-2"
-              href="/services/"
-              class="p-2 rounded-lg text-xl sm:text-3xl lg:text-4xl"
-              >Find out how</a
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
+  rel="stylesheet"
+/>
+
+  </head>
+  <body class="flex flex-col min-h-[100dvh]">
+    
+    <div class="flex justify-center">
+      <div class="min-w-[65ch]">
+        <div class="flex absolute w-full text-2xl justify-center">
+          <a href="/" class="">Christina Koranteng</a>
+        </div>
+        <main class="grid gap-y-24 overflow-hidden font-sans">
+          
+          <!-- HERO SECTION -->
+          <div
+            class="grid grid-rows-12 h-[100dvh] bg-[url('/img/hero.jpg')] bg-no-repeat bg-cover bg-[center] text-white"
+          >
+            <div
+              class="row-start-9 row-end-12
+            md:row-start-9 md:row-end-12
+            text-center"
             >
+              <header class="flex flex-col gap-2">
+                <p class="text-4xl sm:text-6xl lg:text-8xl font-semibold">
+                  SOLVE YOUR PROBLEMS
+                </p>
+                <p class="text-4xl sm:text-6xl lg:text-8xl font-semibold">
+                  AT THE ROOT
+                </p>
+                <div class="">
+                  <a
+                    class="border rounded p-2"
+                    href="/services/"
+                    class="p-2 rounded-lg text-xl sm:text-3xl lg:text-4xl"
+                    >Find out how</a
+                  >
+                </div>
+              </header>
+            </div>
           </div>
-        </header>
-      </div>
-    </div>
 
-    <!-- Elevator Pitch -->
-    <div
-      class="flex flex-col place-self-center justify-center w-[100ch] p-4 sm:p-8 gap-5 text-center items-center"
-    >
-      <div class="text-2xl sm:text-3xl lg:text-5xl font-serif">
-        No more struggling with the same patterns for years
-      </div>
-      <div class="text-lg">
-        You are an amazing self-refleced individual who's read the self help
-        books, maybe even done the therapy and always knows how to give the best
-        advice. but somehow you never managed to translate that into the big
-        changes you want for your own life. i'll let you in on a little
-        secret...true change happens when we target the subconscious mind! and
-        that's exactly what i know to do best.
-      </div>
-    </div>
-
-    <!-- Relation -->
-    <!-- <div
-      class="grid grid-flow-row h-[60dvh] sm:grid-flow-col grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 p-4 sm:p-8"
-    >
-      <div
-        class="col-span-1 bg-[url('/img/relate.jpg')] bg-center bg-no-repeat bg-cover"
-      >
-      </div>
-
-      <div
-        class="flex flex-col p-4 sm:p-8 py-24 gap-5 text-center justify-center"
-      >
-      <div class="text-2xl sm:text-3xl lg:text-5xl font-serif">I know what it's like</div>
-        <div class="">
-          <p class="text-lg">
-            I know what it's like to feel stuck in a loop, with full self
-            awareness of certain behaviours, yet no actual practical ways to
-            change.I know what it's like to have this big AHA moment one day, just to
-            find your self in that same old pattern the next. (Read more)
-          </p>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Testimonials -->
-    <div
-      class="flex flex-col justify-center p-4 sm:p-8 py-8 gap-5 sm:gaoverflow-auto"
-    >
-      <div class="text-2xl sm:text-3xl lg:text-5xl sm:text-center font-serif">
-        Testimonials
-      </div>
-      <div
-        class="flex self-center overflow-auto p-4 sm:p-8 g p-4a sm:gap-20 w-[800px] sm:w-[80%]"
-      >
-        <div class="w-1/3">
-          <div class="">
-            Christina's methods are really hands on and that's what I love about
-            her approach. I really felt in control of my own process and the
-            results show it.
-          </div>
-          <div>- Amanda N.</div>
-        </div>
-        <div class="w-1/3">
-          <div class="">
-            I've had many different forms of therapy throughout my life but
-            working with Christina has made the biggest impact by far!
-          </div>
-          <div>- Darah</div>
-        </div>
-        <div class="w-1/3">
-          <div class="">Thank you for your magic Christina!</div>
-          <div>- Leah</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Offerings -->
-    <div
-      class="flex flex-col h-[50dvh] sm:flex-row justify-between p-4 sm:p-8 gap-5 sm:w-[80%] place-self-center"
-    >
-      <div class="flex flex-col justify-center gap-4 sm:w-1/3">
-        <div class="text-2xl sm:text-3xl lg:text-5xl font-serif">
-          Time to get out of that Quicksand
-        </div>
-        <div class="text-xl">
-          I help people reprogram and heal their subconscious program patterns
-          and self sabotage.
-        </div>
-      </div>
-      <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
-        <a
-          class="grid grid-cols-3 sm:grid-rows-10 sm:grid-cols-1"
-          href="/services/iat"
-        >
+          <!-- About -->
+          <header>
+            <h1 class="text-center">Hi, I’m Christina</h1>
+          </header>
+          <section>
+            <p>
+              an Integrated Attachment Coach dedicated to helping self-aware
+              individuals uncover the blind spots that are preventing them from
+              experiencing true fulfillment in different areas of life. My approach is
+              rooted in the belief that understanding the root cause of our problem is
+              the fastest way to solving it.
+            </p>
+            <h2>My Philosophy</h2>
+            <p>
+              Awareness is everything, yet achieves nothing without action. It's one
+              thing to be aware of a situation and it's something completely different
+              to actually change it. Where many forms of therapy stop at the level of
+              simply being aware of a pattern, IAT moves into deeper layers and helps
+              you transform it by targeting your subconscious mind.
+            </p>
+            <h2>What is Integrated Attachment Coaching?</h2>
+            <p>
+              Integrated Attachment Coaching is a holistic approach that combines the
+              principles of attachment theory with practical coaching techniques that
+              rewire your subconscious mind.
+            </p>
+          </section>
+      
+          <!-- Elevator Pitch -->
           <div
-            class="w-1/2 sm:w-full sm:row-span-8 bg-[url('/img/iat.jpg')] bg-cover bg-no-repeat"
+            class="flex flex-col place-self-center justify-center w-[100ch] p-4 sm:p-8 gap-5 text-center items-center"
           >
+            <div class="text-2xl sm:text-3xl lg:text-5xl font-serif">
+              No more struggling with the same patterns for years
+            </div>
+            <div class="text-lg">
+              You are an amazing self-refleced individual who's read the self help
+              books, maybe even done the therapy and always knows how to give the best
+              advice. but somehow you never managed to translate that into the big
+              changes you want for your own life. i'll let you in on a little
+              secret...true change happens when we target the subconscious mind! and
+              that's exactly what i know to do best.
+            </div>
           </div>
-          <div class="">THE MIND</div>
-          <div class="">IAT - INTEGRATED ATTACHMENT THEORY</div>
-        </a>
-        <a
-          class="grid grid-cols-3 sm:grid-rows-10 sm:grid-cols-1"
-          href="/services/ttc"
-        >
+      
+          <!-- Relation -->
+          <!-- <div
+            class="grid grid-flow-row h-[60dvh] sm:grid-flow-col grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 p-4 sm:p-8"
+          >
+            <div
+              class="col-span-1 bg-[url('/img/relate.jpg')] bg-center bg-no-repeat bg-cover"
+            >
+            </div>
+      
+            <div
+              class="flex flex-col p-4 sm:p-8 py-24 gap-5 text-center justify-center"
+            >
+            <div class="text-2xl sm:text-3xl lg:text-5xl font-serif">I know what it's like</div>
+              <div class="">
+                <p class="text-lg">
+                  I know what it's like to feel stuck in a loop, with full self
+                  awareness of certain behaviours, yet no actual practical ways to
+                  change.I know what it's like to have this big AHA moment one day, just to
+                  find your self in that same old pattern the next. (Read more)
+                </p>
+              </div>
+            </div>
+          </div> -->
+      
+          <!-- Testimonials -->
           <div
-            class="w-1/2 sm:w-full sm:row-span-8 bg-[url('/img/ttc.jpg')] bg-cover bg-no-repeat"
+            class="flex flex-col justify-center p-4 sm:p-8 py-8 gap-5 sm:gaoverflow-auto"
           >
+            <div class="text-2xl sm:text-3xl lg:text-5xl sm:text-center font-serif">
+              Testimonials
+            </div>
+            <div
+              class="flex self-center overflow-auto p-4 sm:p-8 g p-4a sm:gap-20 w-[800px] sm:w-[80%]"
+            >
+              <div class="w-1/3">
+                <div class="">
+                  Christina's methods are really hands on and that's what I love about
+                  her approach. I really felt in control of my own process and the
+                  results show it.
+                </div>
+                <div>- Amanda N.</div>
+              </div>
+              <div class="w-1/3">
+                <div class="">
+                  I've had many different forms of therapy throughout my life but
+                  working with Christina has made the biggest impact by far!
+                </div>
+                <div>- Darah</div>
+              </div>
+              <div class="w-1/3">
+                <div class="">Thank you for your magic Christina!</div>
+                <div>- Leah</div>
+              </div>
+            </div>
           </div>
-          <div class="">THE BODY</div>
-          <div class="">TTC - SOMATIC/ ENERGY WORK</div>
-        </a>
+      
+          <!-- Offerings -->
+          <div
+            class="flex flex-col h-[50dvh] sm:flex-row justify-between p-4 sm:p-8 gap-5 sm:w-[80%] place-self-center"
+          >
+            <div class="flex flex-col justify-center gap-4 sm:w-1/3">
+              <div class="text-2xl sm:text-3xl lg:text-5xl font-serif">
+                Time to get out of that Quicksand
+              </div>
+              <div class="text-xl">
+                I help people reprogram and heal their subconscious program patterns
+                and self sabotage.
+              </div>
+            </div>
+            <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
+              <a
+                class="grid grid-cols-3 sm:grid-rows-10 sm:grid-cols-1"
+                href="/services/iat"
+              >
+                <div
+                  class="w-1/2 sm:w-full sm:row-span-8 bg-[url('/img/iat.jpg')] bg-cover bg-no-repeat"
+                >
+                </div>
+                <div class="">THE MIND</div>
+                <div class="">IAT - INTEGRATED ATTACHMENT THEORY</div>
+              </a>
+              <a
+                class="grid grid-cols-3 sm:grid-rows-10 sm:grid-cols-1"
+                href="/services/ttc"
+              >
+                <div
+                  class="w-1/2 sm:w-full sm:row-span-8 bg-[url('/img/ttc.jpg')] bg-cover bg-no-repeat"
+                >
+                </div>
+                <div class="">THE BODY</div>
+                <div class="">TTC - SOMATIC/ ENERGY WORK</div>
+              </a>
+            </div>
+          </div>
+          <!-- Contact CTA -->
+          <aside class="flex flex-col p-4 items-center">
+            <h2>Interested in working together?</h2>
+            <a class="flex" href="mailto:me@example.com"> Reach out </a>
+          </aside>
+        </main>
       </div>
     </div>
-    <!-- Contact CTA -->
-    <aside class="flex flex-col p-4 items-center">
-      <h2>Interested in working together?</h2>
-      <a class="flex" href="mailto:me@example.com"> Reach out </a>
-    </aside>
-  </main>
-</BaseLayout>
+
+    <section>
+      <div class="">
+        <p class="">info@christinakoranteng.org</p>
+      </div>
+    </section>
+
+    <footer class="mt-auto">
+      <div class="flex flex-col p-4 gap-4 justify-between">
+        <div class="socials flex justify-evenly gap-2">
+          <a href="https://twitter.com/me"> spotify</a>
+          <a href="https://github.com/me"> instagram</a>
+          <a href="https://codepen.io/me"> tiktok</a>
+        </div>
+        <div class="flex justify-center">&copy; {currentYear} Christina Koranteng</div>
+      </div>
+    </footer>
+    <script is:inline>
+      // This code is inlined in the head to make dark mode instant & blocking.
+      const getThemePreference = () => {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+      const isDark = getThemePreference() === "dark";
+      document.documentElement.classList[isDark ? "add" : "remove"]("theme-dark");
+    </script>
+    <script>
+      // Add “loaded” class once the document has completely loaded.
+      addEventListener("load", () =>
+        document.documentElement.classList.add("loaded")
+      );
+    </script>
+  </body>
+</html>
+
